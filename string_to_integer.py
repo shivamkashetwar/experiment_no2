@@ -1,39 +1,22 @@
-
 class Solution:
-    def myAtoi(self, s: str) -> int:
-        i = 0
-        n = len(s)
-        sign = 1
-        num = 0
+    def isPalindrome(self, x: int) -> bool:
+    
+        if x < 0:
+            return False
 
-        INT_MAX = 2**31 - 1
-        INT_MIN = -2**31
+        original = x
+        reverse = 0
 
-        # Skip leading spaces
-        while i < n and s[i] == " ":
-            i += 1
+        while x > 0:
+            digit = x % 10
+            reverse = reverse * 10 + digit
+            x //= 10
 
-        # Check sign
-        if i < n:
-            if s[i] == "-":
-                sign = -1
-                i += 1
-            elif s[i] == "+":
-                i += 1
+            if x == reverse:
+                print("it is paalandrome")
+            else:
+                print("not pallandrome")
 
-        # Read digits
-        while i < n and s[i].isdigit():
-            digit = int(s[i])
-
-            # Overflow check
-            if num > INT_MAX // 10 or (num == INT_MAX // 10 and digit > 7):
-                return INT_MAX if sign == 1 else INT_MIN
-
-            num = num * 10 + digit
-            i += 1
-
-        return sign * num
-
-sol=Solution()
-a="-123"
-print(sol.myAtoi(a))
+Sol=Solution()
+x=int(input("enter the any no"))
+print(Sol.isPalindrome(x))
