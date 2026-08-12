@@ -1,16 +1,24 @@
-arr = [64, 25, 12, 22, 11]
+n=int(input("enter the nio of salary"))
 
-n = len(arr)
+list=[]
 
 for i in range(n):
-    min_index = i
+    id=int(input(f"enter the salary {i+1}  "))
+    list.append(id)
 
-    # Find the smallest element
-    for j in range(i + 1, n):
-        if arr[j] < arr[min_index]:
-            min_index = j
+print("unsorted list is",list)
 
-    # Swap the smallest element with current position
-    arr[i], arr[min_index] = arr[min_index], arr[i]
+for i in range(n-1):
+    min=i;
 
-print("Sorted array:", arr)
+    for j in range(i+1,n):
+        if(list[j]<list[min]):
+            min=j
+
+
+    list[i],list[min]=list[min],list[i]
+
+
+print("sorrted salary is",list)
+
+
